@@ -1,5 +1,9 @@
+<h1>Bienvenido a <%= title %></h1>
+<p>El portal donde podrá crear sus propios juegos!</p>
+<p><a href="/quizes">Comience a jugar</a></p>
 
-    <h1>Bienvenido a <%= title %></h1>
-    <p>El portal donde podrá crear sus propios juegos!</p>
-    <p><a href="/quizes">Comience a jugar</a></p>
  
+<form action="/quizes" method="get">
+  Busqueda:  <input type="text" name="search" />
+  <input type="submit" value="Buscar" />
+</form>
