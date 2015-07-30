@@ -52,11 +52,9 @@ exports.new = function (req,res) {
 // POST /quizes/create
 exports.create = function (req, res){
   var quiz = models.Quiz.build( req.body.quiz );
-  console.log("Hola1");
-  console.log(quiz);
 
   err = quiz.validate();
-  console.log(err);
+
   if(err){
     res.render('quizes/new', {quiz: quiz, errors: err});
   }else{
