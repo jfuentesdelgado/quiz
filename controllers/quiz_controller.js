@@ -84,3 +84,10 @@ exports.update = function(req, res) {
     req.quiz.save( {fields: ["pregunta", "respuesta"]}).then(function(){ res.redirect('/quizes');});
   }
 };
+
+// DELETE/quizes/:id
+exports.destroy = function (req, res) {
+  req.quiz.destroy().then(function(){
+    res.redirect('/quizes');
+  }).catch(function(error){next(error)});
+};
