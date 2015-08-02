@@ -37,15 +37,14 @@ Subject.hasMany(Quiz);
 exports.Quiz = Quiz; //exporta definición de tabla Quiz
 exports.Subject = Subject;
 
-
 //sequelize.sync() se conecta a la base de datos
 sequelize.sync().success(function(){
   // sucess(..) ejecuta el manejador una vez creada la tabla
   Quiz.count().success(function (count){ //la tabla se inicializa solo si está vacia
     if(count===0){
       Quiz.bulkCreate( 
-        [ {pregunta: 'Capital de Italia',   respuesta: 'Roma' }, 
-          {pregunta: 'Capital de Portugal', respuesta: 'Lisboa' }
+        [ {pregunta: 'Capital de Italia',   respuesta: 'Roma' , SubjectId: 2 }, 
+          {pregunta: 'Capital de Portugal', respuesta: 'Lisboa', SubjectId: 2 }
         ]
       ).then(function(){console.log('Base de datos (tabla quiz) inicializada')});
       Subject.bulkCreate(
