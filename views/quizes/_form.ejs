@@ -1,3 +1,14 @@
+<label for="subject" class="rem">Tema:</label>
+<select name="quiz[SubjectId]">
+  <%for(index in subjects){%>
+  <option value=<%= subjects[index].id %>
+    <% if(subjects[index].id === quiz.SubjectId) {%>
+      selected="selected"
+    <% } %>
+  ><%= subjects[index].nombre %></option>
+  <%}%>
+</select>
+
 <label for="preg" class="rem">Pregunta:</label>
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" />
 <br />
