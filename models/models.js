@@ -37,6 +37,7 @@ Subject.hasMany(Quiz);
 exports.Quiz = Quiz; //exporta definición de tabla Quiz
 exports.Subject = Subject;
 
+
 //sequelize.sync() se conecta a la base de datos
 sequelize.sync().success(function(){
   // sucess(..) ejecuta el manejador una vez creada la tabla
