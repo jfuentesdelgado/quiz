@@ -6,9 +6,7 @@ exports.load = function(req, res, next, quizId){
     where: {
       id: Number(quizId)
     },
-    include: [{
-      model: models.Subject
-    }]
+    include: [{ model: models.Subject } , { model: models.Comment }]
   }).then(
       function(quiz){
         if (quiz) {
