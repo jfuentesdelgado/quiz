@@ -22,11 +22,11 @@ router.delete('/login', sessionController.destroy); //destruir sesión
 router.get('/quizes',                       quizController.index);
 router.get('/quizes/:quizId(\\d+)',         quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer',  quizController.answer);
-router.get('/quizes/new',                   quizController.new);
-router.post('/quizes/create',               quizController.create);
-router.get('/quizes/:quizId(\\d+)/edit',    quizController.edit);
-router.put('/quizes/:quizId(\\d+)',         quizController.update);
-router.delete('/quizes/:quizId(\\d+)',      quizController.destroy);
+router.get('/quizes/new',                   session.loginRequired, quizController.new);
+router.post('/quizes/create',               session.loginRequired, quizController.create);
+router.get('/quizes/:quizId(\\d+)/edit',    session.loginRequired, quizController.edit);
+router.put('/quizes/:quizId(\\d+)',         session.loginRequired, quizController.update);
+router.delete('/quizes/:quizId(\\d+)',      session.loginRequired, quizController.destroy);
 
 router.get('/quizes/:quizId(\\d+)/comments/new',  commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments',     commentController.create);
