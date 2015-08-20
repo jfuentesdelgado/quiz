@@ -40,6 +40,20 @@ app.use(function(req, res, next){
 
 });
 
+//MW que deslogea si ha pasado más de dos minutos
+app.use(function(req, res, next){
+  if (req.session.user){
+    var now =  (new Date()).getTime();
+    if(req.session.time && (req.session.time + (2*60*1000)) < now){
+      delete req.session.time;
+      delete req.session.user;
+    }else{
+      req.session.time=now;
+    }
+  }
+  next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
