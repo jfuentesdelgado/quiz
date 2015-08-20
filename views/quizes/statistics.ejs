@@ -1,0 +1,35 @@
+<% 
+var numQuizes = quizes.length;
+var numQuizWith = 0;
+var numQuizWithout = 0;
+var numComments = 0;
+quizes.forEach(function(quiz){
+  if (quiz.comments.length == 0) {
+    numQuizWithout ++;
+  }else{
+    numQuizWith ++;
+    numComments += quiz.comments.length;
+  }
+});
+%>
+<h1> ESTADISTICAS </h1>
+<ul>
+  <li>
+    Número de preguntas:
+    <%= numQuizes %>
+  </li>
+  <li>
+    Número de comentarios: 
+    <%= numComments %>
+  </li>
+  <li>
+    Número medio de comentarios por preguntas: 
+    <%= numComments/numQuizes %> 
+  </li>
+  <li>
+    Número de preguntas sin comentarios: <%= numQuizWithout %>
+  </li>
+  <li>
+    Número de preguntas con comentarios: <%= numQuizWith %>
+  </li>
+</ul>
